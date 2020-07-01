@@ -8,13 +8,12 @@ export default class SingleFile extends Component {
       file: {}
     }
 
-    this.componentDidMount=this.componentDidMount.bind(this)
     this.handleDownload=this.handleDownload.bind(this)
     this.handleDelete=this.handleDelete.bind(this)
   }
 
   componentDidMount() {
-    fetch(`http://127.0.0.1:5000/file/get/${this.props.id}", {method: "GET"}`)
+    fetch(`http://127.0.0.1:5000/file/get/${this.props.id}`, {method: "GET"})
     .then(response => response.blob())
     .then(data => {
       const file = new File([data], this.props.name, { type: this.props.type})
@@ -53,7 +52,7 @@ export default class SingleFile extends Component {
             <div className='single-file-wrapper'>
                     <h3>{this.state.file.name}</h3>
                     <button onClick={this.handleDownload}> Download</button>
-                    <button onClick={this.handleDelete}>Delete</button>
+                    <button className="delete-button" onClick={this.handleDelete}>Delete</button>
             </div>
           )
       }
