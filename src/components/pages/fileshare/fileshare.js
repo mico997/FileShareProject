@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import SingleFile from './singleFile';
+import SingleFile from './pages/fileshare/singleFile';
 
 export default class FileShare extends Component {
   constructor() {
